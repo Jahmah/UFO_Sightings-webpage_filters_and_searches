@@ -1,7 +1,6 @@
 // from data.js
-//var tableData = data;
+var tableData = data;
 
-// YOUR CODE HERE!
 // Get references to the tbody element, input field and button
 var $tbody = document.querySelector('tbody');
 var $dateInput = document.querySelector('#date');
@@ -11,7 +10,7 @@ var $searchBtn = document.querySelector('#search');
 // Add an event listener to the searchButton, call handleSearchButtonClick when clicked
 //$searchBtn.addEventListener("click",handleSearchButtonClick);
 
-var tableData = data;
+
 
 // renderTable renders the tableData to the tbody
 function renderTable() {
