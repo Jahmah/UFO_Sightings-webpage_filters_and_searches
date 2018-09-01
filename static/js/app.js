@@ -34,14 +34,14 @@ function renderTable() {
 
 function handleSearchButtonClick() {
   // Format the user's search by removing leading and trailing whitespace, lowercase the string
-  var filterState = $dateInput.value.trim().toLowerCase();
+  var filterDate = $dateInput.value.trim().toLowerCase();
 
   // Set tableData to an array of all addresses whose "state" matches the filter
     tableData = data.filter(function(report) {
-      var addressState = report.datetime;
+      var dataDate = report.datetime;
 
       // If true, add the report to the tableData, otherwise don't add it to tableData
-      return addressState === filterState;
+      return dataDate === filterDate;
   });
   renderTable();
 }
