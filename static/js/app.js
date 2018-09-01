@@ -7,12 +7,7 @@ var $dateInput = document.querySelector('#date');
 var $searchBtn = document.querySelector('#search');
 
 
-// Add an event listener to the searchButton, call handleSearchButtonClick when clicked
-//$searchBtn.addEventListener("click",handleSearchButtonClick);
-
-
-
-// renderTable renders the tableData to the tbody
+// renderTable function renders the tableData to the tbody
 function renderTable() {
   $tbody.innerHTML = '';
   for (var i = 0; i < tableData.length; i++) {
@@ -20,12 +15,13 @@ function renderTable() {
     var report = tableData[i];
     var fields = Object.keys(report);
     // Create a new row in the tbody, set the index to be i + startingIndex
-    var $row = $tbody.insertRow(i);
-    for (var j = 0; j < fields.length; j++) {
-      // For every field in the report object, create a new cell at set its inner text to be the current value at the current report's field
-      var field = fields[j];
-      var $cell = $row.insertCell(j);
-      $cell.innerText = report[field];
+      var $row = $tbody.insertRow(i);
+      for (var j = 0; j < fields.length; j++) {
+    // For every field in the report object, create a new cell
+    // This sets its inner text to be the current value at the current report's field
+        var field = fields[j];
+        var $cell = $row.insertCell(j);
+        $cell.innerText = report[field];
     }
   }
 }
@@ -40,19 +36,13 @@ function handleSearchButtonClick() {
       var dataDate = report.datetime;
 
       // If true, add the report to the tableData, otherwise don't add it to tableData
-      return dataDate === filterDate;
+       return dataDate === filterDate;
   });
   renderTable();
 }
 
-  //function handleResetButtonClick() {
-      //tableData = Data;
-      //$cityInput.value = '';
-      //$stateInput.value = '';
-      //renderTable();
-    //};
-
 // Render the table for the first time on page load
 renderTable();
 
+// Add an event listener to the searchButton, call handleSearchButtonClick when clicked
 $searchBtn.addEventListener("click",handleSearchButtonClick);
