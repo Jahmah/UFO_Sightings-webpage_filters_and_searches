@@ -11,14 +11,14 @@ var $searchBtn = document.querySelector('#search');
 // Add an event listener to the searchButton, call handleSearchButtonClick when clicked
 //$searchBtn.addEventListener("click",handleSearchButtonClick);
 
-var filteredReports = data;
+var tableData = data;
 
-// renderTable renders the filteredReports to the tbody
+// renderTable renders the tableData to the tbody
 function renderTable() {
   $tbody.innerHTML = '';
-  for (var i = 0; i < filteredReports.length; i++) {
+  for (var i = 0; i < tableData.length; i++) {
     // Get get the current report object and its fields
-    var report = filteredReports[i];
+    var report = tableData[i];
     var fields = Object.keys(report);
     // Create a new row in the tbody, set the index to be i + startingIndex
     var $row = $tbody.insertRow(i);
@@ -36,11 +36,11 @@ function handleSearchButtonClick() {
   // Format the user's search by removing leading and trailing whitespace, lowercase the string
   var filterState = $dateInput.value.trim().toLowerCase();
 
-  // Set filteredReports to an array of all addresses whose "state" matches the filter
-    filteredReports = data.filter(function(report) {
+  // Set tableData to an array of all addresses whose "state" matches the filter
+    tableData = data.filter(function(report) {
       var addressState = report.datetime;
 
-      // If true, add the report to the filteredReports, otherwise don't add it to filteredReports
+      // If true, add the report to the tableData, otherwise don't add it to tableData
       return addressState === filterState;
   });
   renderTable();
